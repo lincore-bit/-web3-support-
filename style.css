@@ -1,1 +1,121 @@
+:root {
+  --bg-main: #0b0e11;
+  --bg-card: #12161c;
+  --bg-card-soft: #141a22;
+  --border-soft: rgba(255,255,255,0.06);
 
+  --text-main: #e6e8eb;
+  --text-muted: #9aa4b2;
+
+  --accent: #6ea8ff;
+  --accent-soft: rgba(110,168,255,0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background:
+    radial-gradient(1200px 500px at 20% -10%, rgba(110,168,255,0.12), transparent),
+    var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: linear-gradient(180deg, var(--bg-card), var(--bg-card-soft));
+  border-radius: 20px;
+  padding: 22px;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.45),
+              0 0 0 1px var(--accent-soft);
+}
+
+.hero {
+  grid-column: span 3;
+  padding: 32px;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+}
+
+.muted {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+ul {
+  margin-left: 18px;
+}
+
+ul li {
+  margin-bottom: 6px;
+}
+
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-left: 0;
+}
+
+.tags li {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-soft);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.wide {
+  grid-column: span 2;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero,
+  .wide {
+    grid-column: span 1;
+  }
+}
