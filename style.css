@@ -26,37 +26,47 @@ body {
   line-height: 1.6;
 }
 
+/* LINKS */
 a {
   color: var(--accent);
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
+/* GRID CONTAINER */
 .container {
   max-width: 1100px;
   margin: 40px auto;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 
+/* CARDS */
 .card {
   background: linear-gradient(180deg, var(--bg-card), var(--bg-card-soft));
   border-radius: 20px;
   padding: 22px;
   border: 1px solid var(--border-soft);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35),
+              inset 0 1px 0 rgba(255,255,255,0.03);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 45px rgba(0,0,0,0.45),
-              0 0 0 1px var(--accent-soft);
+  box-shadow:
+    0 20px 45px rgba(0,0,0,0.45),
+    0 0 0 1px var(--accent-soft);
 }
 
+/* HERO */
 .hero {
-  grid-column: span 3;
+  grid-column: 1 / -1;
   padding: 32px;
 }
 
@@ -70,16 +80,20 @@ a {
   margin-bottom: 12px;
 }
 
+/* HEADINGS */
 h2 {
   font-size: 1.05rem;
   margin-bottom: 10px;
+  color: #f1f3f5;
 }
 
+/* TEXT */
 .muted {
   color: var(--text-muted);
   font-size: 0.85rem;
 }
 
+/* LISTS */
 ul {
   margin-left: 18px;
 }
@@ -88,6 +102,7 @@ ul li {
   margin-bottom: 6px;
 }
 
+/* TAGS */
 .tags {
   list-style: none;
   display: flex;
@@ -102,20 +117,40 @@ ul li {
   padding: 6px 12px;
   border-radius: 999px;
   font-size: 0.8rem;
+  color: #d6d9de;
 }
 
+/* WIDE CARD (optional) */
 .wide {
   grid-column: span 2;
 }
 
-/* MOBILE */
+/* TABLET */
 @media (max-width: 900px) {
-  .container {
-    grid-template-columns: 1fr;
+  .wide {
+    grid-column: 1 / -1;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  body {
+    font-size: 0.95rem;
   }
 
-  .hero,
-  .wide {
-    grid-column: span 1;
+  .container {
+    padding: 14px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .hero {
+    padding: 22px;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
   }
 }
