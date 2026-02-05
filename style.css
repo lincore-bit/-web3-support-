@@ -153,3 +153,15 @@ ul li {
     grid-template-columns: 1fr;
   }
 }
+.status-badge {
+  margin-left: 12px;
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: rgba(110,168,255,0.12);
+  border: 1px solid var(--accent-soft);
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
