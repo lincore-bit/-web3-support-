@@ -165,3 +165,8 @@ ul li {
   vertical-align: middle;
   white-space: nowrap;
 }
+@media print {
+  .status-badge {
+    display: none;
+  }
+}
